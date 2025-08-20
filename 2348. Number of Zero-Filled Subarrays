@@ -1,0 +1,25 @@
+class Solution(object):
+    def zeroFilledSubarray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        count = 0   # to keep track of current zero streak
+        result = 0  # total number of subarrays
+        
+        for i in nums:
+            if i == 0:
+                count += 1
+                result += count
+            else:
+                count = 0
+        return result
+
+
+# Main code to run
+if __name__ == "__main__":
+    # Example test case
+    nums = [1,3,0,0,2,0,0,4]  
+    sol = Solution()
+    print("Input:", nums)
+    print("Number of Zero-Filled Subarrays:", sol.zeroFilledSubarray(nums))
