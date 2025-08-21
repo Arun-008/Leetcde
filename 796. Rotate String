@@ -1,0 +1,10 @@
+class Solution(object):
+    def rotateString(self, s, goal):
+        if len(s) != len(goal):
+            return False
+        li = list(s)
+        for _ in range(len(s)):   
+            if ''.join(li) == goal:
+                return True
+            li.append(li.pop(0))  
+        return False
