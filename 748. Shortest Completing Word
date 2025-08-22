@@ -1,0 +1,20 @@
+from collections import Counter
+class Solution(object):
+    def shortestCompletingWord(self, licensePlate, words):
+        """
+        :type licensePlate: str
+        :type words: List[str]
+        :rtype: str
+        """
+        s_count = Counter(c.lower() for c in licensePlate if c.isalpha())
+        
+        res = ""
+        min_len = float('inf')
+        
+        for word in words:
+            word_count = Counter(word.lower())
+            if all(word_count[c] >= s_count[c] for c in s_count):
+                if len(word) < min_len:
+                    min_len = len(word)
+                    res = word
+        return res
