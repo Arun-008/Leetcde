@@ -1,0 +1,38 @@
+class Solution(object):
+    def findDiagonalOrder(self, mat):
+        """
+        :type mat: List[List[int]]
+        :rtype: List[int]
+        """
+        m, n = len(mat), len(mat[0])  
+        i, j, count = 0, 0, 0
+        li = []
+
+        while i < m and j < n:
+            if count == 0:   
+                while i >= 0 and j < n:
+                    li.append(mat[i][j])
+                    i -= 1
+                    j += 1
+                
+                if j < n:
+                    i = 0
+                else:
+                    i += 2
+                    j = n - 1
+                count = 1
+
+            else:   
+                while i < m and j >= 0:
+                    li.append(mat[i][j])
+                    i += 1
+                    j -= 1
+               
+                if i < m:
+                    j = 0
+                else:
+                    j += 2
+                    i = m - 1
+                count = 0
+
+        return li
