@@ -1,0 +1,19 @@
+class Solution(object):
+    def capitalizeTitle(self, title):
+        """
+        :type title: str
+        :rtype: str
+        """
+        title = title.split()
+        
+        s = [i.lower() for i in title]   
+        t = []
+        
+        for i in s:
+            if len(i) <= 2:
+                i = i.lower()   
+            else:
+                i = i.title()  
+            t.append(i)
+        
+        return ' '.join(t)
