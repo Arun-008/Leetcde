@@ -1,0 +1,9 @@
+class Solution(object):
+    def removeDuplicates(self, s):
+        stack = []
+        for ch in s:
+            if stack and stack[-1] == ch:  # if top of stack equals current char
+                stack.pop()                # remove it (duplicate found)
+            else:
+                stack.append(ch)           # otherwise keep it
+        return ''.join(stack)
