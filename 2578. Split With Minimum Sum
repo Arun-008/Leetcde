@@ -1,0 +1,15 @@
+class Solution(object):
+    def splitNum(self, num):
+        """
+        :type num: int
+        :rtype: int
+        """
+        tableau = "".join(sorted([digit for digit in str(num)]))
+        number1, number2 = "", ""
+        for nombre in range(len(tableau)):
+            if nombre % 2 == 0:
+             number1 += tableau[nombre]
+            else:
+             number2 += tableau[nombre]
+        return int(number1) + int(number2)
+        
