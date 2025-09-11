@@ -1,0 +1,26 @@
+class Solution(object):
+    def sortVowels(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        vowels = "AEIOUaeiou"
+        tosort = ""
+        
+        for v in vowels:
+            if v in s:
+                tosort += v * s.count(v)
+        
+        result = ""
+        ct = 0
+        for ch in s:
+            if ch in vowels:
+                result += tosort[ct]
+                ct += 1
+            else:
+                result += ch
+        return result
+
+
+
+        
