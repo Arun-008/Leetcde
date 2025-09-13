@@ -1,0 +1,13 @@
+class Solution(object):
+    def convertDateToBinary(self, date):
+        """
+        :type date: str
+        :rtype: str
+        """
+        date = date.split('-')
+        for i in range(len(date)):
+            if date[i][0] == 0:
+                del date[i][0]
+        new = [str(bin(int(el))).replace('0b', '') for el in date]
+        new = '-'.join(new)
+        return new
