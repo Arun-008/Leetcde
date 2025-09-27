@@ -1,0 +1,17 @@
+class Solution(object):
+    def largestTriangleArea(self, points):
+        maxarea = 0
+        n = len(points)
+
+        for i in range(n):
+            poi1 = points[i]
+            for j in range(i+1, n):
+                poi2 = points[j]
+                for k in range(j+1, n):                   
+                    poi3 = points[k]
+                    sum = (poi1[0]*(poi2[1]-poi3[1])+poi2[0]*(poi3[1]-poi1[1])+poi3[0]*(poi1[1]-poi2[1]))
+                    area = abs(sum)
+                    if area>maxarea:
+                        maxarea=area
+
+        return maxarea/2.0
