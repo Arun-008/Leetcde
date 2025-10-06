@@ -1,0 +1,16 @@
+class Solution(object):
+    def uncommonFromSentences(self, s1, s2):
+        """
+        :type s1: str
+        :type s2: str
+        :rtype: List[str]
+        """
+        sentence = s1 + " " + s2
+        word_count = defaultdict(int)
+        words = sentence.split()
+        for word in words:
+            word_count[word] += 1
+        result = [word for word in word_count if word_count[word] == 1]
+
+        return result
+        
